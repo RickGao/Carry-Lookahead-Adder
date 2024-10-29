@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Carry lookahead Adder
+Carry Lookahead Adder
 
 ## How to test
 
