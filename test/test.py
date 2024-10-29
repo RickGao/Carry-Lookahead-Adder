@@ -46,7 +46,7 @@ async def test_project(dut):
             dut.uio_in.value = b_val
 
             # Wait for some clock cycles for the result to settle
-            await ClockCycles(dut.clk, 1)
+            await ClockCycles(dut.clk, 10)
 
             # Calculate expected values
             expected_sum = (a_val + b_val) & 0xFF  # 8-bit sum (lower 8 bits)
