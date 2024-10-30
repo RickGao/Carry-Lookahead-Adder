@@ -2,7 +2,7 @@
 project:
   title:        "Carry Lookahead Adder"      # Project title
   author:       "RickGao"      # Your name
-  discord:      "RickGao"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "Carry Lookahead Adder 8 Bits"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
