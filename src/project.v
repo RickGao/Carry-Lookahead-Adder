@@ -40,13 +40,8 @@ module tt_um_carry_lookahead_adder (
 
 
   // Generate and Propagate
-  genvar i;
-  generate
-    for (i = 0; i < 8; i = i + 1) begin : gen_prop_loop
-      and (g[i], a[i], b[i]);
-      xor (p[i], a[i], b[i]);
-    end
-  endgenerate
+  assign g = a & b;
+  assign p = a ^ b;
 
   //c[0]
   and (e[0], cin, p[0]);
