@@ -39,7 +39,8 @@ module tt_um_carry_lookahead_adder (
 
     // Generate and Propagate
     assign g = a & b;
-    assign p = a ^ b;
+    // assign p = a ^ b; // XOR Propagate
+    assign p = a | b;
 
 
     // Carry
@@ -54,10 +55,11 @@ module tt_um_carry_lookahead_adder (
 
 
     // Sum
-    assign sum = p[7:0] ^ c[7:0];
+    assign sum = p[7:0] ^ c[7:0];           // XOR Propagate
+    assign sum = g[7:0] ^ p[7:0] ^ c[7:0];  // OR Propagate
     // assign sum = a + b;
 
-    
+
     // Connect to output
     assign uo_out[7:0] = sum[7:0];
 
