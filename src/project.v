@@ -28,9 +28,8 @@ module tt_um_carry_lookahead_adder (
 
     wire [7:0]  a, b;
     wire [7:0]  g, p, c;
-    // wire [35:0] e;
     wire [7:0]  sum;
-    wire        cout;
+    // wire        cout;
 
 
     assign a[7:0] = ui_in[7:0];
@@ -39,8 +38,8 @@ module tt_um_carry_lookahead_adder (
 
     // Generate and Propagate
     assign g = a & b;
-    // assign p = a ^ b; // XOR Propagate
-    assign p = a | b;
+    assign p = a ^ b; // XOR Propagate
+    // assign p = a | b; // OR Propagate
 
 
     // Carry
@@ -52,12 +51,13 @@ module tt_um_carry_lookahead_adder (
     assign c[5] = g[4] | (p[4] & g[3]) | (p[4] & p[3] & g[2]) | (p[4] & p[3] & p[2] & g[1]) | (p[4] & p[3] & p[2] & p[1] & g[0]);
     assign c[6] = g[5] | (p[5] & g[4]) | (p[5] & p[4] & g[3]) | (p[5] & p[4] & p[3] & g[2]) | (p[5] & p[4] & p[3] & p[2] & g[1]) | (p[5] & p[4] & p[3] & p[2] & p[1] & g[0]);
     assign c[7] = g[6] | (p[6] & g[5]) | (p[6] & p[5] & g[4]) | (p[6] & p[5] & p[4] & g[3]) | (p[6] & p[5] & p[4] & p[3] & g[2]) | (p[6] & p[5] & p[4] & p[3] & p[2] & g[1]) | (p[6] & p[5] & p[4] & p[3] & p[2] & p[1] & g[0]);
+    // assign cout = g[7] | (p[7] & g[6]) | (p[7] & p[6] & g[5]) | (p[7] & p[6] & p[5] & g[4]) | (p[7] & p[6] & p[5] & p[4] & g[3]) | (p[7] & p[6] & p[5] & p[4] & p[3] & g[2]) | (p[7] & p[6] & p[5] & p[4] & p[3] & p[2] & g[1]) | (p[7] & p[6] & p[5] & p[4] & p[3] & p[2] & p[1] & g[0]);
 
 
     // Sum
-    // assign sum = p[7:0] ^ c[7:0];           // XOR Propagate
-    assign sum = g[7:0] ^ p[7:0] ^ c[7:0];  // OR Propagate
-    // assign sum = a + b;
+    assign sum = p[7:0] ^ c[7:0];           // XOR Propagate
+    // assign sum = g[7:0] ^ p[7:0] ^ c[7:0];  // OR Propagate
+    // assign sum = a + b;                     // Simple Adder
 
 
     // Connect to output
