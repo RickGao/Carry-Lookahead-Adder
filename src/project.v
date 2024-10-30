@@ -55,7 +55,7 @@ module tt_um_carry_lookahead_adder (
 
 
     // Sum
-    assign sum = p[7:0] ^ c[7:0];           // XOR Propagate
+    // assign sum = p[7:0] ^ c[7:0];           // XOR Propagate
     assign sum = g[7:0] ^ p[7:0] ^ c[7:0];  // OR Propagate
     // assign sum = a + b;
 
