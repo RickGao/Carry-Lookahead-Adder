@@ -51,6 +51,8 @@ You can also include images in this folder and reference them in the markdown. E
 
 Run test and conduct exhaustive verification of the design within the Tiny Tapeout flow to ensure complete functional accuracy and robustness across all input combinations.
 
+Input two 8 bit integers from input pins and get one 8 bit integer from output pins
+
 ## External hardware
 
 No external hardware
